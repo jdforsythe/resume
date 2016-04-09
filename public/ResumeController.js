@@ -2,16 +2,23 @@
   function ResumeController(ResumeFactory) {
     var vm = this;
 
-    vm.technicalSkills = ResumeFactory.getTechnicalSkills();
+    ResumeFactory.getTechnicalSkills().success(function(data) {
+      vm.technicalSkills = data;
+    });
 
-    vm.interests = ResumeFactory.getInterests();
+    ResumeFactory.getInterests().success(function(data) {
+      vm.interests = data;
+    });
+
+    ResumeFactory.getEmployers().success(function(data) {
+      vm.employers = data;
+    });
+
+    ResumeFactory.getLinks().success(function(data) {
+      vm.links = data;
+    });
 
     vm.employerChronological = true;
-
-    vm.employers = ResumeFactory.getEmployers();
-
-    vm.links = ResumeFactory.getLinks();
-    
   }
   ResumeController.$inject = ['ResumeFactory'];
   app.controller('ResumeController', ResumeController);
