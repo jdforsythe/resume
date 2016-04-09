@@ -1,0 +1,23 @@
+{
+  "name": "resume-jdforsythe",
+  "version": "1.0.0",
+  "description": "A brief overview of my experience, wrapped up in a code sample",
+  "main": "server.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "resume",
+    "node",
+    "javascript"
+  ],
+  "author": "Jeremy Forsythe <jdforsythe@gmail.com>",
+  "homepage": "https://github.com/jdforsythe/resume",
+  "license": "MIT",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}

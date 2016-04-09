@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%- name %></title>
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="resume.js"></script>
+    <script type="text/javascript" src="ResumeController.js"></script>
+    <script type="text/javascript" src="ResumeFactory.js"></script>
+  </head>
+
+  <body class="container-fluid" ng-app="resume" ng-controller="ResumeController as vm">
+    
+    <p class="text-center">Looking for a PDF version? <a href="<%- pdf %>">Click here</a></p>
+
+    <div id="resume" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+
+      <header class="row">
+          <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3 name-outline">
+            <h2 class="text-center"><%- name.toUpperCase() %></h2>
+          </div>
+      </header>
+
+      <div class="row">
+
+        <!-- left column -->
+        <div class="col-md-4 left-col">
+          <h2>Contact</h2>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Name</strong></td>
+                <td><%- name %></td>
+              </tr>
+
+              <tr>
+                <td><strong>Mobile</strong></td>
+                <td><%- phone %></td>
+              </tr>
+
+              <tr>
+                <td><strong>E-mail</strong></td>
+                <td><a href="mailto:<%- email %>"><%- email %></a></td>
+              </tr>
+
+              <tr>
+                <td><strong>Address</strong></td>
+                <td><%- address %></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Technical Skills</h2>
+          <div class="row">
+            <div class="col-xs-6 col-md-12"  ng-repeat-start="category in vm.technicalSkills track by $index">
+              <h3>{{ category.category }}</h3>
+              <ul class="list-group">
+                <li class="list-group-item" ng-repeat="member in category.members track by $index">
+                  {{ member }}
+                </li>
+              </ul>
+            </div>
+            <div class="clearfix visible-xs-block visible-sm-block" ng-if="$index % 2 > 0" ng-repeat-end></div>
+          </div>
+
+          <h2>Hobbies / Interests</h2>
+          <div class="row">
+            <div class="col-xs-3 thumbnail" ng-repeat="interest in vm.interests track by $index">
+              <img ng-src="{{interest.image}}" alt="{{interest.name}}">
+              <div class="caption">
+                <h5 class="text-center">{{interest.name}}</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- right column -->
+        <div class="col-md-8">
+          <h2>Profile</h2>
+          <div class="well">
+            <%- profile %>
+          </div>
+
+          <h2>Employment <small><button class="btn btn-xs btn-primary pull-right" ng-click="vm.employerChronological = !vm.employerChronological">Reverse Sort</button></small></h2>
+          <div class="panel panel-default" ng-repeat="employer in vm.employers | orderBy: 'endYear':vm.employerChronological">
+            <div class="panel-heading">
+              <h3 class="panel-title">[{{employer.dates}}] {{employer.name}} <small>{{employer.position}}</small></h3>
+            </div>
+            <div class="panel-body">
+              {{employer.summary}}
+            </div>
+          </div>
+
+          <h2>Freelance</h2>
+          <div class="well">
+            <%- freelance %>
+          </div>
+
+          <h2>Links</h2>
+          <div class="list-group">
+            <a class="list-group-item" ng-repeat="link in vm.links" ng-href="{{link.url}}">
+              <h4 class="list-group-item-heading">{{link.title}}</h4>
+              <p class="list-group-item-text">{{link.url}}</p>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <footer class="row">
+        <p class="text-center">
+          <strong><%- name %></strong> <%- address %>
+          <strong>Phone</strong> <%- phone %>
+          <strong>E-mail</strong> <a href="mailto:<%- email %>"><%- email %></a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

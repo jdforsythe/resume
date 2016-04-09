@@ -1,0 +1,24 @@
+{
+  "name": "resume-jdforsythe",
+  "description": "A brief overview of my experience, wrapped up in a code sample",
+  "main": "server.js",
+  "authors": [
+    "Jeremy Forsythe <jdforsythe@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "resume",
+    "node",
+    "javascript"
+  ],
+  "homepage": "https://github.com/jdforsythe/resume",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/bower_components/"
+  ],
+  "dependencies": {
+    "angular": "angularjs#^1.5.3"
+  }
+}
