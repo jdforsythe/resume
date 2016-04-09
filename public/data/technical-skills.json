@@ -1,0 +1,44 @@
+[
+  {
+    "category": "Platforms",
+    "members": [
+      "Windows",
+      "Mac OS X",
+      "Debian/Ubuntu",
+      "CentOS/RHEL",
+      "Android",
+      "iOS",
+      "Tizen",
+      "WebOS"
+    ]
+  },
+  {
+    "category": "Languages",
+    "members": [
+      "HTML/CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL",
+      "C#/VB .NET"
+    ]
+  },
+  {
+    "category": "Frameworks",
+    "members": [
+      "AngularJS",
+      "Laravel 4/5",
+      "Lumen",
+      "CodeIgniter",
+      "Ionic"
+    ]
+  },
+  {
+    "category": "Software",
+    "members": [
+      "Photoshop",
+      "InDesign",
+      "Illustrator",
+      "Excel"
+    ]
+  }
+]

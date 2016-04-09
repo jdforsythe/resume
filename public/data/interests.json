@@ -1,0 +1,6 @@
+[
+  { "name": "Tech", "image": "img/sdcard.png" },
+  { "name": "Music", "image": "img/guitar.png" },
+  { "name": "Science", "image": "img/atom.png" },
+  { "name": "Outdoors", "image": "img/tent.png" }
+]
